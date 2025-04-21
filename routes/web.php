@@ -4,11 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('auth.Layouts.authLayouts');
+    return view('auth.page.login');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    // return view('dashboard');
+    return view('Admin.layouts.adminLayouts');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -18,3 +20,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+// Route::get('/admind', function () {
+//     // return view('auth.Layouts.authLayouts');
+//     return view('Admin.layouts.adminLayouts');
+// });
